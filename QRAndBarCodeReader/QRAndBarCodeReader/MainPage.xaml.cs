@@ -16,9 +16,16 @@ namespace QRAndBarCodeReader
             InitializeComponent();
 
             CameraButton.Clicked += CameraButton_Clicked;
+
+            Scan();
         }
 
         private async void CameraButton_Clicked(object sender, EventArgs e)
+        {
+            await Scan();
+        }
+
+        private async Task Scan()
         {
             var options = new ZXing.Mobile.MobileBarcodeScanningOptions
             {
