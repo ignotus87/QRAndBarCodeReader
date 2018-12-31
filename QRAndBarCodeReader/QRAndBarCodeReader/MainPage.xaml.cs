@@ -9,8 +9,10 @@ namespace QRAndBarCodeReader
 {
     public partial class MainPage : ContentPage
     {
+        private const string SEPARATOR = "§§§";
+        private const string SCAN_HISTORY = "ScanHistory";
+
         private ObservableCollection<string> _scanHistory = new ObservableCollection<string>();
-        private readonly string SCAN_HISTORY = "ScanHistory";
 
         public MainPage()
         {
@@ -35,13 +37,13 @@ namespace QRAndBarCodeReader
 
         private async void SaveScanHistory()
         {
-            Application.Current.Properties[SCAN_HISTORY] = string.Join("§§§", _scanHistory.ToList());
+            Application.Current.Properties[SCAN_HISTORY] = string.Join(SEPARATOR, _scanHistory.ToList());
             await App.Current.SavePropertiesAsync();
         }
 
         private void RestoreScanHistory()
         {
-            _scanHistory = new ObservableCollection<string>((Application.Current.Properties[SCAN_HISTORY] as string ?? "").Split(new string[] { "§§§" }, StringSplitOptions.RemoveEmptyEntries));
+            _scanHistory = new ObservableCollection<string>((Application.Current.Properties[SCAN_HISTORY] as string ?? "").Split(new string[] { SEPARATOR }, StringSplitOptions.RemoveEmptyEntries));
         }
 
         private void OnChange(object sender, EventArgs e)
