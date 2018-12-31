@@ -1,23 +1,32 @@
-﻿using Android.Graphics;
-using Plugin.Media;
-using System;
-using System.IO;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using ZXing;
 using ZXing.Net.Mobile.Forms;
 
 namespace QRAndBarCodeReader
 {
     public partial class MainPage : ContentPage
     {
+        private ObservableCollection<string> _scanHistory = new ObservableCollection<string>();
+
         public MainPage()
         {
             InitializeComponent();
 
+            this.BindingContext = _scanHistory;
+
             CameraButton.Clicked += CameraButton_Clicked;
 
             Scan();
+        }
+
+        private async void OnItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            if (e == null) return; // has been set to null, do not 'process' tapped event
+            await DisplayAlert("Scanned Barcode", e.Item.ToString(), "OK");
+
+            ((ListView)sender).SelectedItem = null; // de-select the row
         }
 
         private async void CameraButton_Clicked(object sender, EventArgs e)
@@ -48,24 +57,12 @@ namespace QRAndBarCodeReader
                 Device.BeginInvokeOnMainThread(async () =>
                 {
                     await Navigation.PopAsync();
-                    await DisplayAlert("Scanned Barcode", result.Text, "OK");
+                    //await DisplayAlert("Scanned Barcode", result.Text, "OK");
+                    _scanHistory.Add(result.Text);
                 });
             };
 
             await Navigation.PushAsync(scanPage);
-        }
-
-        private async Task<bool> EnsurePermissions()
-        {
-            await CrossMedia.Current.Initialize();
-
-            if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
-            {
-                await DisplayAlert("No Camera", ":( No camera available.", "OK");
-                return false;
-            }
-
-            return true;
         }
     }
 }

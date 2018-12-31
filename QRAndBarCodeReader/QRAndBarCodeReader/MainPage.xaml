@@ -11,7 +11,10 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <Image x:Name="PhotoImage" />
+        <ListView x:Name="ListView" 
+			  ItemTapped="OnItemTapped"
+			  ItemsSource="{Binding .}" />
+        
         <Label x:Name="BarCodeValue" MaxLines="10" Grid.Row="1" />
         <Button x:Name="CameraButton" Text="Take Photo" Grid.Row="2" />
     </Grid>
