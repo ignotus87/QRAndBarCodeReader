@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QRAndBarCodeReader.Android", "QRAndBarCodeReader\QRAndBarCodeReader.Android\QRAndBarCodeReader.Android.csproj", "{76558705-D75B-46D3-AB41-B3D30268E849}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QRAndBarCodeReader", "QRAndBarCodeReader\QRAndBarCodeReader\QRAndBarCodeReader.csproj", "{A49E0D48-0B63-40F8-BCDE-91BD00EB7EE9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{76558705-D75B-46D3-AB41-B3D30268E849}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76558705-D75B-46D3-AB41-B3D30268E849}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76558705-D75B-46D3-AB41-B3D30268E849}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{76558705-D75B-46D3-AB41-B3D30268E849}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76558705-D75B-46D3-AB41-B3D30268E849}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76558705-D75B-46D3-AB41-B3D30268E849}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{A49E0D48-0B63-40F8-BCDE-91BD00EB7EE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A49E0D48-0B63-40F8-BCDE-91BD00EB7EE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A49E0D48-0B63-40F8-BCDE-91BD00EB7EE9}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{A49E0D48-0B63-40F8-BCDE-91BD00EB7EE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A49E0D48-0B63-40F8-BCDE-91BD00EB7EE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A49E0D48-0B63-40F8-BCDE-91BD00EB7EE9}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {41F85738-9F85-40B8-A380-8995707DDAEC}
+	EndGlobalSection
+EndGlobal
