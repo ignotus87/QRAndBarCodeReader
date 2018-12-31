@@ -92,7 +92,6 @@ namespace QRAndBarCodeReader
                 Device.BeginInvokeOnMainThread(async () =>
                 {
                     await Navigation.PopAsync();
-                    //await DisplayAlert("Scanned Barcode", result.Text, "OK");
                     _scanHistory.Add(result.Text);
                     SaveScanHistory();
                 });
