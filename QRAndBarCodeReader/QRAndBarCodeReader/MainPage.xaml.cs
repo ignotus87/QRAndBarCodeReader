@@ -1,12 +1,11 @@
-﻿using Plugin.Media;
-using Plugin.Permissions;
-using Plugin.Permissions.Abstractions;
+﻿using Android.Graphics;
+using Plugin.Media;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using ZXing;
+using ZXing.Net.Mobile.Forms;
 
 namespace QRAndBarCodeReader
 {
@@ -21,17 +20,32 @@ namespace QRAndBarCodeReader
 
         private async void CameraButton_Clicked(object sender, EventArgs e)
         {
-            var isCameraAvailable = await EnsurePermissions();
-
-            if (!isCameraAvailable)
+            var options = new ZXing.Mobile.MobileBarcodeScanningOptions
             {
-                return;
-            }
+                AutoRotate = true,
+                DelayBetweenContinuousScans = 200,
+                DisableAutofocus = false,
+                TryHarder = true
+            };
+            var scanPage = new ZXingScannerPage(options)
+            {
+                DefaultOverlayShowFlashButton = true
+            };
 
-            var photo = await Plugin.Media.CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions() { });
+            scanPage.OnScanResult += (result) =>
+            {
+                // Stop scanning
+                scanPage.IsScanning = false;
 
-            if (photo != null)
-                PhotoImage.Source = ImageSource.FromStream(() => { return photo.GetStream(); });
+                // Pop the page and show the result
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await Navigation.PopAsync();
+                    await DisplayAlert("Scanned Barcode", result.Text, "OK");
+                });
+            };
+
+            await Navigation.PushAsync(scanPage);
         }
 
         private async Task<bool> EnsurePermissions()
