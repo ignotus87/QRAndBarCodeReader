@@ -1,4 +1,6 @@
-﻿namespace QRAndBarCodeReader
+﻿using System;
+
+namespace QRAndBarCodeReader
 {
     public enum ScanResultType
     {
@@ -11,6 +13,7 @@
     {
         public string Text { get; private set; }
         public ScanResultType Type { get; private set; }
+        public string TypeText => Enum.GetName(typeof(ScanResultType), Type) ?? "N/A";
 
         public ScanResult(string text)
         {

@@ -17,7 +17,16 @@
 			  ItemsSource="{Binding .}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding Text}" />
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label FontSize="Default" FontAttributes="Bold" Text="{Binding Text}" />
+                            <Label FontSize="Default" Text="{Binding TypeText}" Grid.Row="1" />
+                        </Grid>
+                    </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
