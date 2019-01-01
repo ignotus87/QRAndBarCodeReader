@@ -1,6 +1,7 @@
 ﻿
 using QRAndBarCodeReader.Interfaces;
 using QRAndBarCodeReader.Resources;
+using System.Web;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -34,9 +35,13 @@ namespace QRAndBarCodeReader
                     break;
 
                 case ScanResultOptions.OpenLink:
+                    var link = (!Result.Text.StartsWith("http") ? "http://" : "") + Result.Text;
+                    Device.OpenUri(new System.Uri(link));
                     break;
 
                 case ScanResultOptions.SearchInGoogle:
+                    var searchLink = "https://www.google.com/search?q=" + HttpUtility.UrlEncode(Result.Text);
+                    Device.OpenUri(new System.Uri(searchLink));
                     break;
 
                 case ScanResultOptions.Delete:

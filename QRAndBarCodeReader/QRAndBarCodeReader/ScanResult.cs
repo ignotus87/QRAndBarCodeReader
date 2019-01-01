@@ -64,7 +64,7 @@ namespace QRAndBarCodeReader
 
         private void DetermineType()
         {
-            if (Text.StartsWith("http://") || Text.StartsWith("https://"))
+            if (Text.StartsWith("http://") || Text.StartsWith("https://") || Text.ToLower().StartsWith("www."))
             {
                 Type = ScanResultType.Link;   
             }
