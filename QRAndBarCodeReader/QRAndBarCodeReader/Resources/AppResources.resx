@@ -117,9 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CopyToClipboardText" xml:space="preserve">
+    <value>Copy to clipboard</value>
+  </data>
+  <data name="DeleteText" xml:space="preserve">
+    <value>Delete</value>
+  </data>
   <data name="MainPageTitle" xml:space="preserve">
     <value>QR/Barcode reader</value>
     <comment>title of the main page</comment>
+  </data>
+  <data name="OpenLinkText" xml:space="preserve">
+    <value>Open link</value>
   </data>
   <data name="PositionCodeToLine" xml:space="preserve">
     <value>Position code to line</value>
@@ -130,5 +139,12 @@
   <data name="ScannedBarcodeText" xml:space="preserve">
     <value>ScannedBarcode</value>
     <comment>text shown on the top of the barcode reading page</comment>
+  </data>
+  <data name="ScanResultText" xml:space="preserve">
+    <value>Scan result</value>
+    <comment>title of the scan result details page</comment>
+  </data>
+  <data name="SearchInGoogleText" xml:space="preserve">
+    <value>Search in Google</value>
   </data>
 </root>

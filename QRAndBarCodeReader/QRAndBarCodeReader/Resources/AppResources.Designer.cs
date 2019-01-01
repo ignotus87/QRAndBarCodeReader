@@ -61,11 +61,38 @@ namespace QRAndBarCodeReader.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Copy to clipboard.
+        /// </summary>
+        public static string CopyToClipboardText {
+            get {
+                return ResourceManager.GetString("CopyToClipboardText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        public static string DeleteText {
+            get {
+                return ResourceManager.GetString("DeleteText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to QR/Barcode reader.
         /// </summary>
         public static string MainPageTitle {
             get {
                 return ResourceManager.GetString("MainPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open link.
+        /// </summary>
+        public static string OpenLinkText {
+            get {
+                return ResourceManager.GetString("OpenLinkText", resourceCulture);
             }
         }
         
@@ -93,6 +120,24 @@ namespace QRAndBarCodeReader.Resources {
         public static string ScannedBarcodeText {
             get {
                 return ResourceManager.GetString("ScannedBarcodeText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scan result.
+        /// </summary>
+        public static string ScanResultText {
+            get {
+                return ResourceManager.GetString("ScanResultText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search in Google.
+        /// </summary>
+        public static string SearchInGoogleText {
+            get {
+                return ResourceManager.GetString("SearchInGoogleText", resourceCulture);
             }
         }
     }
