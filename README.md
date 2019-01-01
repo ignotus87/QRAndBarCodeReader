@@ -7,3 +7,6 @@ A QR and barcode reader for Android using Xamarin Forms
 - [ ] action 1: open url
 - [ ] action 2: copy text
 - [ ] action 3: search in Google
+
+# Contribution
+Any contribution is welcome.
