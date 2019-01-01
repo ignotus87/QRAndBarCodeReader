@@ -147,4 +147,28 @@
   <data name="SearchInGoogleText" xml:space="preserve">
     <value>Google keresés</value>
   </data>
+  <data name="DeleteAreYouSureText" xml:space="preserve">
+    <value>Biztosan törlöd?</value>
+    <comment>question of the delete item alert box</comment>
+  </data>
+  <data name="DeleteItemText" xml:space="preserve">
+    <value>Beolvasás törlése</value>
+    <comment>title of the delete item alert box</comment>
+  </data>
+  <data name="DeleteNo" xml:space="preserve">
+    <value>Nem</value>
+    <comment>no answer for the delete item question</comment>
+  </data>
+  <data name="DeleteYes" xml:space="preserve">
+    <value>Igen</value>
+    <comment>yes answer for the delete item question</comment>
+  </data>
+  <data name="OKText" xml:space="preserve">
+    <value>OK</value>
+    <comment>OK</comment>
+  </data>
+  <data name="TextCopiedText" xml:space="preserve">
+    <value>Vágólapra másolva</value>
+    <comment>shown after copy to clipboard</comment>
+  </data>
 </root>

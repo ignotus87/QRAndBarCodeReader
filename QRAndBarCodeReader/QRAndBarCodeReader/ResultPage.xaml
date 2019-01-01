@@ -5,13 +5,21 @@
              Title="{Binding ScanResultText}">
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
-            <Label Text="{Binding Text}"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Label Text="{Binding TypeText}" FontSize="Small" 
-                   VerticalOptions="Start"
-                   HorizontalOptions="Start" />
+            <Frame>
+                <StackLayout Orientation="Vertical">
+                    <Label Text="{Binding Text}"
+                        VerticalOptions="CenterAndExpand" 
+                        HorizontalOptions="CenterAndExpand" 
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Start" />
+                    <Label Text="{Binding TypeText}" FontSize="Small" 
+                           VerticalOptions="Start"
+                           HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
+            </Frame>
             <ListView
+                x:Name="ListView"
+                ItemTapped="OnItemTapped"
                 ItemsSource="{Binding Options}">
                 <ListView.ItemTemplate>
                     <DataTemplate>

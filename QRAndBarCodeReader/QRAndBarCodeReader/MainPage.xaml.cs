@@ -13,7 +13,7 @@ namespace QRAndBarCodeReader
         private const string SEPARATOR = "§§§";
         private const string SCAN_HISTORY = "ScanHistory";
 
-        private ObservableCollection<ScanResult> _scanHistory = new ObservableCollection<ScanResult>();
+        private static ObservableCollection<ScanResult> _scanHistory = new ObservableCollection<ScanResult>();
 
         public MainPage()
         {
@@ -25,6 +25,12 @@ namespace QRAndBarCodeReader
             ScanButton.Clicked += ScanButton_Clicked;
 
             Scan();
+        }
+
+        public static void RemoveFromScanHistory(ScanResult scanResult)
+        {
+            _scanHistory.Remove(scanResult);
+            SaveScanHistory();
         }
 
         private void InitializeScanHistory()
@@ -39,7 +45,7 @@ namespace QRAndBarCodeReader
             }
         }
 
-        private async void SaveScanHistory()
+        private static async void SaveScanHistory()
         {
             Application.Current.Properties[SCAN_HISTORY] = string.Join(SEPARATOR, _scanHistory.Select(x => x.Text).ToList());
             await App.Current.SavePropertiesAsync();
