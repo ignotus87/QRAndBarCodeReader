@@ -65,18 +65,6 @@ namespace QRAndBarCodeReader
         {
             if (e == null) return; // has been set to null, do not 'process' tapped event
 
-            //string text;
-            //try
-            //{
-            //    text = ((ScanResult)e.Item).Text;
-            //}
-            //catch
-            //{
-            //    text = "N/A";
-            //}
-
-            //await DisplayAlert(AppResources.ScannedBarcodeText, text, "OK");
-
             var resultPage = new ResultPage(((ScanResult)e.Item));
             await Navigation.PushAsync(resultPage);
 

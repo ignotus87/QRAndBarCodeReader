@@ -9,11 +9,6 @@ namespace QRAndBarCodeReader
 	{
         public ScanResult Result { get; private set; }
 
-  //      public ResultPage ()
-		//{
-		//	InitializeComponent ();
-		//}
-
         public ResultPage(ScanResult scanResult)
         {
             InitializeComponent();
