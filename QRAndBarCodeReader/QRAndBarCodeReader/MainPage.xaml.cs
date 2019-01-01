@@ -13,7 +13,7 @@ namespace QRAndBarCodeReader
         private const string SEPARATOR = "§§§";
         private const string SCAN_HISTORY = "ScanHistory";
 
-        private ObservableCollection<string> _scanHistory = new ObservableCollection<string>();
+        private ObservableCollection<ScanResult> _scanHistory = new ObservableCollection<ScanResult>();
 
         public MainPage()
         {
@@ -41,7 +41,7 @@ namespace QRAndBarCodeReader
 
         private async void SaveScanHistory()
         {
-            Application.Current.Properties[SCAN_HISTORY] = string.Join(SEPARATOR, _scanHistory.ToList());
+            Application.Current.Properties[SCAN_HISTORY] = string.Join(SEPARATOR, _scanHistory.Select(x => x.Text).ToList());
             await App.Current.SavePropertiesAsync();
         }
 
@@ -53,12 +53,7 @@ namespace QRAndBarCodeReader
 
         private void RestoreScanHistory()
         {
-            _scanHistory = new ObservableCollection<string>((Application.Current.Properties[SCAN_HISTORY] as string ?? "").Split(new string[] { SEPARATOR }, StringSplitOptions.RemoveEmptyEntries));
-        }
-
-        private void OnChange(object sender, EventArgs e)
-        {
-            Application.Current.Properties[SCAN_HISTORY] = _scanHistory;
+            _scanHistory = new ObservableCollection<ScanResult>((Application.Current.Properties[SCAN_HISTORY] as string ?? "").Split(new string[] { SEPARATOR }, StringSplitOptions.RemoveEmptyEntries).Select(x => new ScanResult(x)));
         }
 
         protected override void OnDisappearing()
@@ -88,6 +83,7 @@ namespace QRAndBarCodeReader
                 DisableAutofocus = false,
                 TryHarder = true
             };
+
             var scanPage = new ZXingScannerPage(options)
             {
                 Title = AppResources.PositionCodeToLine,
@@ -103,7 +99,7 @@ namespace QRAndBarCodeReader
                 Device.BeginInvokeOnMainThread(async () =>
                 {
                     await Navigation.PopAsync();
-                    _scanHistory.Insert(0, result.Text);
+                    _scanHistory.Insert(0, new ScanResult(result.Text));
                     SaveScanHistory();
                 });
             };
