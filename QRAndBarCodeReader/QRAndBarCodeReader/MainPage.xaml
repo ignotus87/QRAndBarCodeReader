@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:QRAndBarCodeReader"
-             x:Class="QRAndBarCodeReader.MainPage">
+             x:Class="QRAndBarCodeReader.MainPage"
+             Title="{local:Translate MainPageTitle}">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -16,7 +17,7 @@
 			  ItemsSource="{Binding .}" />
         
         <Label x:Name="BarCodeValue" MaxLines="10" Grid.Row="1" />
-        <Button x:Name="CameraButton" Text="Take Photo" Grid.Row="2" />
+        <Button x:Name="ScanButton" Text="{local:Translate ScanButtonText}" Grid.Row="2" />
     </Grid>
 
 </ContentPage>
