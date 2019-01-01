@@ -16,7 +16,7 @@
 			  ItemsSource="{Binding .}" />
         
         <Label x:Name="BarCodeValue" MaxLines="10" Grid.Row="1" />
-        <Button x:Name="ScanButton" Text="ScanButtonText" Grid.Row="2" />
+        <Button x:Name="ScanButton" Text="{local:Translate ScanButtonText}" Grid.Row="2" />
     </Grid>
 
 </ContentPage>

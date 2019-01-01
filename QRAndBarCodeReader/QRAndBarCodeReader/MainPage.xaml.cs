@@ -18,7 +18,6 @@ namespace QRAndBarCodeReader
         public MainPage()
         {
             InitializeComponent();
-            Translate();
             InitializeScanHistory();
 
             this.BindingContext = _scanHistory;
@@ -26,11 +25,6 @@ namespace QRAndBarCodeReader
             ScanButton.Clicked += ScanButton_Clicked;
 
             Scan();
-        }
-
-        private void Translate()
-        {
-            ScanButton.Text = QRAndBarCodeReader.Resources.AppResources.ScanButtonText;
         }
 
         private void InitializeScanHistory()
