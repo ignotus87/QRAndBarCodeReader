@@ -14,8 +14,14 @@
 
         <ListView x:Name="ListView" 
 			  ItemTapped="OnItemTapped"
-			  ItemsSource="{Binding .}" />
-        
+			  ItemsSource="{Binding .}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Text}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
         <Label x:Name="BarCodeValue" MaxLines="10" Grid.Row="1" />
         <Button x:Name="ScanButton" Text="{local:Translate ScanButtonText}" Grid.Row="2" />
     </Grid>
