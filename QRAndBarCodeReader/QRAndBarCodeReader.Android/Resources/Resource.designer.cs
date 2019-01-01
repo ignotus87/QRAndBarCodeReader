@@ -4064,6 +4064,9 @@ namespace QRAndBarCodeReader.Droid
 			// aapt resource value: 0x7f090026
 			public const int abc_toolbar_collapse_description = 2131296294;
 			
+			// aapt resource value: 0x7f09003d
+			public const int app_name = 2131296317;
+			
 			// aapt resource value: 0x7f090034
 			public const int appbar_scrolling_view_behavior = 2131296308;
 			
