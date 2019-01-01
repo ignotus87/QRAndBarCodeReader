@@ -17,16 +17,7 @@ namespace QRAndBarCodeReader
         public MainPage()
         {
             InitializeComponent();
-
-            if (Application.Current.Properties.ContainsKey(SCAN_HISTORY))
-            {
-                RestoreScanHistory();
-            }
-            else
-            {
-                Application.Current.Properties.Add(SCAN_HISTORY, "");
-                App.Current.SavePropertiesAsync();
-            }
+            InitializeScanHistory();
 
             this.BindingContext = _scanHistory;
 
@@ -35,9 +26,27 @@ namespace QRAndBarCodeReader
             Scan();
         }
 
+        private void InitializeScanHistory()
+        {
+            if (Application.Current.Properties.ContainsKey(SCAN_HISTORY))
+            {
+                RestoreScanHistory();
+            }
+            else
+            {
+                CreateScanHistory();
+            }
+        }
+
         private async void SaveScanHistory()
         {
             Application.Current.Properties[SCAN_HISTORY] = string.Join(SEPARATOR, _scanHistory.ToList());
+            await App.Current.SavePropertiesAsync();
+        }
+
+        private async void CreateScanHistory()
+        {
+            Application.Current.Properties.Add(SCAN_HISTORY, "");
             await App.Current.SavePropertiesAsync();
         }
 
@@ -92,7 +101,7 @@ namespace QRAndBarCodeReader
                 Device.BeginInvokeOnMainThread(async () =>
                 {
                     await Navigation.PopAsync();
-                    _scanHistory.Add(result.Text);
+                    _scanHistory.Insert(0, result.Text);
                     SaveScanHistory();
                 });
             };
