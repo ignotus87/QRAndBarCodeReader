@@ -61,11 +61,83 @@ namespace QRAndBarCodeReader.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Copy to clipboard.
+        /// </summary>
+        public static string CopyToClipboardText {
+            get {
+                return ResourceManager.GetString("CopyToClipboardText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure?.
+        /// </summary>
+        public static string DeleteAreYouSureText {
+            get {
+                return ResourceManager.GetString("DeleteAreYouSureText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete item.
+        /// </summary>
+        public static string DeleteItemText {
+            get {
+                return ResourceManager.GetString("DeleteItemText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        public static string DeleteNo {
+            get {
+                return ResourceManager.GetString("DeleteNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        public static string DeleteText {
+            get {
+                return ResourceManager.GetString("DeleteText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        public static string DeleteYes {
+            get {
+                return ResourceManager.GetString("DeleteYes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to QR/Barcode reader.
         /// </summary>
         public static string MainPageTitle {
             get {
                 return ResourceManager.GetString("MainPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OK.
+        /// </summary>
+        public static string OKText {
+            get {
+                return ResourceManager.GetString("OKText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open link.
+        /// </summary>
+        public static string OpenLinkText {
+            get {
+                return ResourceManager.GetString("OpenLinkText", resourceCulture);
             }
         }
         
@@ -93,6 +165,33 @@ namespace QRAndBarCodeReader.Resources {
         public static string ScannedBarcodeText {
             get {
                 return ResourceManager.GetString("ScannedBarcodeText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scan result.
+        /// </summary>
+        public static string ScanResultText {
+            get {
+                return ResourceManager.GetString("ScanResultText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search in Google.
+        /// </summary>
+        public static string SearchInGoogleText {
+            get {
+                return ResourceManager.GetString("SearchInGoogleText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Text copied.
+        /// </summary>
+        public static string TextCopiedText {
+            get {
+                return ResourceManager.GetString("TextCopiedText", resourceCulture);
             }
         }
     }
