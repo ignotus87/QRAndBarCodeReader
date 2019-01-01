@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QRAndBarCodeReader.Resources;
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,13 +18,19 @@ namespace QRAndBarCodeReader
         public MainPage()
         {
             InitializeComponent();
+            Translate();
             InitializeScanHistory();
 
             this.BindingContext = _scanHistory;
 
-            CameraButton.Clicked += CameraButton_Clicked;
+            ScanButton.Clicked += ScanButton_Clicked;
 
             Scan();
+        }
+
+        private void Translate()
+        {
+            ScanButton.Text = QRAndBarCodeReader.Resources.AppResources.ScanButtonText;
         }
 
         private void InitializeScanHistory()
@@ -68,12 +75,12 @@ namespace QRAndBarCodeReader
         private async void OnItemTapped(object sender, ItemTappedEventArgs e)
         {
             if (e == null) return; // has been set to null, do not 'process' tapped event
-            await DisplayAlert("Scanned Barcode", e.Item.ToString(), "OK");
+            await DisplayAlert(AppResources.ScannedBarcodeText, e.Item.ToString(), "OK");
 
             ((ListView)sender).SelectedItem = null; // de-select the row
         }
 
-        private async void CameraButton_Clicked(object sender, EventArgs e)
+        private async void ScanButton_Clicked(object sender, EventArgs e)
         {
             await Scan();
         }
@@ -89,6 +96,7 @@ namespace QRAndBarCodeReader
             };
             var scanPage = new ZXingScannerPage(options)
             {
+                Title = AppResources.PositionCodeToLine,
                 DefaultOverlayShowFlashButton = true
             };
 
