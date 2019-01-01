@@ -86,8 +86,8 @@ namespace QRAndBarCodeReader
         {
             var options = new ZXing.Mobile.MobileBarcodeScanningOptions
             {
-                AutoRotate = true,
-                DelayBetweenContinuousScans = 200,
+                AutoRotate = false,
+                DelayBetweenContinuousScans = 100,
                 DisableAutofocus = false,
                 TryHarder = true
             };
