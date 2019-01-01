@@ -64,7 +64,18 @@ namespace QRAndBarCodeReader
         private async void OnItemTapped(object sender, ItemTappedEventArgs e)
         {
             if (e == null) return; // has been set to null, do not 'process' tapped event
-            await DisplayAlert(AppResources.ScannedBarcodeText, e.Item.ToString(), "OK");
+
+            string text;
+            try
+            {
+                text = ((ScanResult)e.Item).Text;
+            }
+            catch
+            {
+                text = "N/A";
+            }
+
+            await DisplayAlert(AppResources.ScannedBarcodeText, text, "OK");
 
             ((ListView)sender).SelectedItem = null; // de-select the row
         }
