@@ -1,4 +1,6 @@
-﻿using System;
+﻿using QRAndBarCodeReader.Resources;
+using System;
+using System.Collections.Generic;
 
 namespace QRAndBarCodeReader
 {
@@ -11,6 +13,19 @@ namespace QRAndBarCodeReader
 
     public class ScanResult
     {
+        private static string _scanResultText;
+        public static string ScanResultText
+        {
+            get
+            {
+                if (_scanResultText == null)
+                {
+                    _scanResultText = AppResources.ScanResultText;
+                }
+                return _scanResultText;
+            }
+        }
+
         public int ID { get; set; }
         public string Text { get; set; }
 
@@ -29,6 +44,31 @@ namespace QRAndBarCodeReader
 
         public string TypeText => Enum.GetName(typeof(ScanResultType), Type) ?? "N/A";
 
+        private List<ScanResultOption> _options;
+        public List<ScanResultOption> Options
+        {
+            get
+            {
+                if (_options == null)
+                {
+                    _options = new List<ScanResultOption>();
+
+                    if (Type == ScanResultType.Link)
+                    {
+                        _options.Add(ScanResultOptionFactory.Instance.Dictionary[ScanResultOptions.OpenLink]);
+                    }
+
+                    _options.AddRange(new[] 
+                    {
+                        ScanResultOptionFactory.Instance.Dictionary[ScanResultOptions.SearchInGoogle],
+                        ScanResultOptionFactory.Instance.Dictionary[ScanResultOptions.CopyToClipboard],
+                        ScanResultOptionFactory.Instance.Dictionary[ScanResultOptions.Delete]
+                    });
+                }
+                return _options;
+            }
+        }
+
         public ScanResult()
         {
         }
@@ -40,7 +80,7 @@ namespace QRAndBarCodeReader
 
         private void DetermineType()
         {
-            if (Text.StartsWith("http://") || Text.StartsWith("https://"))
+            if (Text.StartsWith("http://") || Text.StartsWith("https://") || Text.ToLower().StartsWith("www."))
             {
                 _type = ScanResultType.Link;   
             }

@@ -117,9 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CopyToClipboardText" xml:space="preserve">
+    <value>Copy to clipboard</value>
+  </data>
+  <data name="DeleteText" xml:space="preserve">
+    <value>Törlés</value>
+  </data>
   <data name="MainPageTitle" xml:space="preserve">
     <value>QR/Vonalkód olvasó</value>
     <comment>title of the main page</comment>
+  </data>
+  <data name="OpenLinkText" xml:space="preserve">
+    <value>Megnyitás böngészőben</value>
   </data>
   <data name="PositionCodeToLine" xml:space="preserve">
     <value>Kódot a vízszintes vonalhoz</value>
@@ -130,5 +139,36 @@
   </data>
   <data name="ScannedBarcodeText" xml:space="preserve">
     <value>Beolvasott vonalkód:</value>
+  </data>
+  <data name="ScanResultText" xml:space="preserve">
+    <value>Beolvasott kód</value>
+    <comment>title of the scan result details page</comment>
+  </data>
+  <data name="SearchInGoogleText" xml:space="preserve">
+    <value>Google keresés</value>
+  </data>
+  <data name="DeleteAreYouSureText" xml:space="preserve">
+    <value>Biztosan törlöd?</value>
+    <comment>question of the delete item alert box</comment>
+  </data>
+  <data name="DeleteItemText" xml:space="preserve">
+    <value>Beolvasás törlése</value>
+    <comment>title of the delete item alert box</comment>
+  </data>
+  <data name="DeleteNo" xml:space="preserve">
+    <value>Nem</value>
+    <comment>no answer for the delete item question</comment>
+  </data>
+  <data name="DeleteYes" xml:space="preserve">
+    <value>Igen</value>
+    <comment>yes answer for the delete item question</comment>
+  </data>
+  <data name="OKText" xml:space="preserve">
+    <value>OK</value>
+    <comment>OK</comment>
+  </data>
+  <data name="TextCopiedText" xml:space="preserve">
+    <value>Vágólapra másolva</value>
+    <comment>shown after copy to clipboard</comment>
   </data>
 </root>
