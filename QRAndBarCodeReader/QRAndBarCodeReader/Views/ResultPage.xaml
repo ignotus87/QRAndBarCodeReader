@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:QRAndBarCodeReader"
              x:Class="QRAndBarCodeReader.ResultPage"
              Title="{Binding TypeText}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:StringToColorConverter x:Key="StringToColorConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
             <Frame>
@@ -24,7 +29,7 @@
                         <ViewCell>
                             <StackLayout Orientation="Horizontal">
                                 <Image Source="{Binding Icon}" />
-                                <Label Text="{Binding Text}" /> 
+                                <Label Text="{Binding Text}" TextColor="{Binding TextColor, Converter={StaticResource StringToColorConverter}}" /> 
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
