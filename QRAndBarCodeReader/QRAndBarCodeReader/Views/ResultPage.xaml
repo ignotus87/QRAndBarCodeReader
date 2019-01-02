@@ -27,10 +27,15 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Orientation="Horizontal">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
                                 <Image Source="{Binding Icon}" />
-                                <Label Text="{Binding Text}" TextColor="{Binding TextColor, Converter={StaticResource StringToColorConverter}}" /> 
-                            </StackLayout>
+                                <Label Text="{Binding Text}" TextColor="{Binding TextColor, Converter={StaticResource StringToColorConverter}}"
+                                       Grid.Column="1" HorizontalOptions="Start" VerticalOptions="Center" /> 
+                            </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
