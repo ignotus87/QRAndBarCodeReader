@@ -69,10 +69,15 @@ namespace QRAndBarCodeReader
         {
             if (e == null) return; // has been set to null, do not 'process' tapped event
 
-            var resultPage = new ResultPage(((ScanResult)e.Item));
-            await Navigation.PushAsync(resultPage);
+            await OpenResultPage(((ScanResult)e.Item));
 
             ((ListView)sender).SelectedItem = null; // de-select the row
+        }
+
+        public async Task OpenResultPage(ScanResult scanResult)
+        {
+            var resultPage = new ResultPage(scanResult);
+            await Navigation.PushAsync(resultPage);
         }
 
         private async void ScanButton_Clicked(object sender, EventArgs e)
@@ -96,16 +101,19 @@ namespace QRAndBarCodeReader
                 DefaultOverlayShowFlashButton = true
             };
 
-            scanPage.OnScanResult += (result) =>
+            scanPage.OnScanResult += async (result) =>
             {
                 // Stop scanning
                 scanPage.IsScanning = false;
+
+                var scanResult = new ScanResult(result.Text);
 
                 // Pop the page and show the result
                 Device.BeginInvokeOnMainThread(async () =>
                 {
                     await Navigation.PopAsync();
-                    await AddScanResult(new ScanResult(result.Text));
+                    await AddScanResult(scanResult);
+                    await OpenResultPage(scanResult);
                 });
             };
 
