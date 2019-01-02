@@ -13,9 +13,6 @@
                         HorizontalOptions="CenterAndExpand" 
                         HorizontalTextAlignment="Center"
                         VerticalTextAlignment="Start" />
-                    <Label Text="{Binding TypeText}" FontSize="Small" 
-                           VerticalOptions="Start"
-                           HorizontalOptions="CenterAndExpand"/>
                 </StackLayout>
             </Frame>
             <ListView
