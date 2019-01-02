@@ -178,6 +178,33 @@ namespace QRAndBarCodeReader.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Link.
+        /// </summary>
+        public static string ScanResultTypeLink {
+            get {
+                return ResourceManager.GetString("ScanResultTypeLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Product.
+        /// </summary>
+        public static string ScanResultTypeProduct {
+            get {
+                return ResourceManager.GetString("ScanResultTypeProduct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Text.
+        /// </summary>
+        public static string ScanResultTypeText {
+            get {
+                return ResourceManager.GetString("ScanResultTypeText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Search in Google.
         /// </summary>
         public static string SearchInGoogleText {

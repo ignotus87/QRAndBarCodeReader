@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CopyToClipboardText" xml:space="preserve">
-    <value>Copy to clipboard</value>
+    <value>Másolás vágólapra</value>
   </data>
   <data name="DeleteText" xml:space="preserve">
     <value>Törlés</value>
@@ -170,5 +170,17 @@
   <data name="TextCopiedText" xml:space="preserve">
     <value>Vágólapra másolva</value>
     <comment>shown after copy to clipboard</comment>
+  </data>
+  <data name="ScanResultTypeLink" xml:space="preserve">
+    <value>Hivatkozás</value>
+    <comment>type of scan result: link</comment>
+  </data>
+  <data name="ScanResultTypeProduct" xml:space="preserve">
+    <value>Termék</value>
+    <comment>type of scan result: product</comment>
+  </data>
+  <data name="ScanResultTypeText" xml:space="preserve">
+    <value>Szöveg</value>
+    <comment>type of scan result: text</comment>
   </data>
 </root>

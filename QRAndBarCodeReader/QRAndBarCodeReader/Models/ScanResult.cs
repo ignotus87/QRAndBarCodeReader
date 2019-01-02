@@ -44,7 +44,7 @@ namespace QRAndBarCodeReader
             }
         }
 
-        public string TypeText => Enum.GetName(typeof(ScanResultType), Type) ?? "N/A";
+        public string TypeText => AppResources.ResourceManager.GetString("ScanResultType" + Enum.GetName(typeof(ScanResultType), Type)) ?? "N/A";
 
         private List<ScanResultOption> _options;
         public List<ScanResultOption> Options

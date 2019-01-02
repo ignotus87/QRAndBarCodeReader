@@ -81,6 +81,10 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\drawable\CopyToClipboard.png" />
+    <AndroidResource Include="Resources\drawable\Delete.png" />
+    <AndroidResource Include="Resources\drawable\OpenLink.png" />
+    <AndroidResource Include="Resources\drawable\SearchInGoogle.png" />
     <AndroidResource Include="Resources\layout\Tabbar.axml" />
     <AndroidResource Include="Resources\layout\Toolbar.axml" />
     <AndroidResource Include="Resources\values\styles.xml" />
@@ -103,7 +107,6 @@
     <Folder Include="Resources\drawable-xhdpi\" />
     <Folder Include="Resources\drawable-xxhdpi\" />
     <Folder Include="Resources\drawable-xxxhdpi\" />
-    <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\QRAndBarCodeReader\QRAndBarCodeReader.csproj">

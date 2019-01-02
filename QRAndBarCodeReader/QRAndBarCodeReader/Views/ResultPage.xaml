@@ -1,8 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:QRAndBarCodeReader"
              x:Class="QRAndBarCodeReader.ResultPage"
-             Title="{Binding ScanResultText}">
+             Title="{Binding TypeText}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:StringToColorConverter x:Key="StringToColorConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
             <Frame>
@@ -12,9 +18,6 @@
                         HorizontalOptions="CenterAndExpand" 
                         HorizontalTextAlignment="Center"
                         VerticalTextAlignment="Start" />
-                    <Label Text="{Binding TypeText}" FontSize="Small" 
-                           VerticalOptions="Start"
-                           HorizontalOptions="CenterAndExpand"/>
                 </StackLayout>
             </Frame>
             <ListView
@@ -24,7 +27,15 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Label Text="{Binding Text}" />
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding Icon}" />
+                                <Label Text="{Binding Text}" TextColor="{Binding TextColor, Converter={StaticResource StringToColorConverter}}"
+                                       Grid.Column="1" HorizontalOptions="Start" VerticalOptions="Center" /> 
+                            </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

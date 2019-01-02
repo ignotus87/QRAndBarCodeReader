@@ -15,11 +15,19 @@ namespace QRAndBarCodeReader
     {
         public ScanResultOptions Option { get; private set; }
         public string Text { get; private set; }
+        public string Icon { get; private set; }
+        public string TextColor { get; private set; }
+
 
         public ScanResultOption(ScanResultOptions option)
         {
+            var optionName = Enum.GetName(typeof(ScanResultOptions), option);
+
             Option = option;
-            Text = AppResources.ResourceManager.GetString(Enum.GetName(typeof(ScanResultOptions), Option) + "Text");
+            Text = AppResources.ResourceManager.GetString(optionName + "Text");
+            Icon = optionName + ".png";
+
+            TextColor = option == ScanResultOptions.Delete ? "#FF0000" : "#000000";
         }
     }
 }
