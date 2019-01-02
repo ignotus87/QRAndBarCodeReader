@@ -1,7 +1,6 @@
 ﻿using QRAndBarCodeReader.Resources;
 using System;
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using ZXing.Net.Mobile.Forms;
@@ -24,42 +23,41 @@ namespace QRAndBarCodeReader
 
             ScanButton.Clicked += ScanButton_Clicked;
 
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
             Scan();
+#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
         }
 
-        public static void RemoveFromScanHistory(ScanResult scanResult)
+        public static async void RemoveFromScanHistory(ScanResult scanResult)
+        {
+            await RemoveScanResult(scanResult);
+        }
+
+        private async void InitializeScanHistory()
+        {
+            await RestoreScanHistory();
+        }
+
+        private static async Task AddScanResult(ScanResult scanResult)
+        {
+            _scanHistory.Insert(0, scanResult);
+            await App.Database.SaveScanResultsAsync(scanResult);
+        }
+
+        private static async Task RemoveScanResult(ScanResult scanResult)
         {
             _scanHistory.Remove(scanResult);
-            SaveScanHistory();
+            await App.Database.DeleteScanResultsAsync(scanResult);
         }
 
-        private void InitializeScanHistory()
+        private async Task RestoreScanHistory()
         {
-            if (Application.Current.Properties.ContainsKey(SCAN_HISTORY))
+            var savedResults = await App.Database.GetScanResultsAsync();
+
+            foreach (var result in savedResults)
             {
-                RestoreScanHistory();
+                _scanHistory.Add(result);
             }
-            else
-            {
-                CreateScanHistory();
-            }
-        }
-
-        private static async void SaveScanHistory()
-        {
-            Application.Current.Properties[SCAN_HISTORY] = string.Join(SEPARATOR, _scanHistory.Select(x => x.Text).ToList());
-            await App.Current.SavePropertiesAsync();
-        }
-
-        private async void CreateScanHistory()
-        {
-            Application.Current.Properties.Add(SCAN_HISTORY, "");
-            await App.Current.SavePropertiesAsync();
-        }
-
-        private void RestoreScanHistory()
-        {
-            _scanHistory = new ObservableCollection<ScanResult>((Application.Current.Properties[SCAN_HISTORY] as string ?? "").Split(new string[] { SEPARATOR }, StringSplitOptions.RemoveEmptyEntries).Select(x => new ScanResult(x)));
         }
 
         protected override void OnDisappearing()
@@ -107,8 +105,7 @@ namespace QRAndBarCodeReader
                 Device.BeginInvokeOnMainThread(async () =>
                 {
                     await Navigation.PopAsync();
-                    _scanHistory.Insert(0, new ScanResult(result.Text));
-                    SaveScanHistory();
+                    await AddScanResult(new ScanResult(result.Text));
                 });
             };
 
