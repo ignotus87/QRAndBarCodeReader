@@ -14,12 +14,12 @@ namespace QRAndBarCodeReader
             _database.CreateTableAsync<ScanResult>().Wait();
         }
 
-        public Task<List<ScanResult>> GetItemsAsync()
+        public Task<List<ScanResult>> GetScanResultsAsync()
         {
             return _database.Table<ScanResult>().ToListAsync();
         }
 
-        public Task<int> SaveItemAsync(ScanResult item)
+        public Task<int> SaveScanResultsAsync(ScanResult item)
         {
             if (item.ID != 0)
             {
@@ -31,7 +31,7 @@ namespace QRAndBarCodeReader
             }
         }
 
-        public Task<int> DeleteItemAsync(ScanResult item)
+        public Task<int> DeleteScanResultsAsync(ScanResult item)
         {
             return _database.DeleteAsync(item);
         }
