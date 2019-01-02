@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CopyToClipboardText" xml:space="preserve">
-    <value>Copy to clipboard</value>
+    <value>Másolás vágólapra</value>
   </data>
   <data name="DeleteText" xml:space="preserve">
     <value>Törlés</value>
