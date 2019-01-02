@@ -3,5 +3,6 @@
   <PropertyGroup>
     <SelectedDevice>HUAWEI FRD-L09</SelectedDevice>
     <DefaultDevice>Android_Accelerated_x86_Oreo</DefaultDevice>
+    <ProjectView>ShowAllFiles</ProjectView>
   </PropertyGroup>
 </Project>

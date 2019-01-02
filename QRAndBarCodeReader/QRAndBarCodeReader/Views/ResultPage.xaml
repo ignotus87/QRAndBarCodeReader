@@ -22,7 +22,10 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Label Text="{Binding Text}" />
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="{Binding Icon}" />
+                                <Label Text="{Binding Text}" /> 
+                            </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
