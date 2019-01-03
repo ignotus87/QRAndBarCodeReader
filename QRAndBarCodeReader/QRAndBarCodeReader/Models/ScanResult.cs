@@ -2,6 +2,7 @@
 using SQLite;
 using System;
 using System.Collections.Generic;
+using System.Web;
 
 namespace QRAndBarCodeReader
 {
@@ -64,6 +65,7 @@ namespace QRAndBarCodeReader
                     {
                         ScanResultOptionFactory.Instance.Dictionary[ScanResultOptions.SearchInGoogle],
                         ScanResultOptionFactory.Instance.Dictionary[ScanResultOptions.CopyToClipboard],
+                        ScanResultOptionFactory.Instance.Dictionary[ScanResultOptions.Share],
                         ScanResultOptionFactory.Instance.Dictionary[ScanResultOptions.Delete]
                     });
                 }
@@ -95,6 +97,21 @@ namespace QRAndBarCodeReader
                 _type = ScanResultType.Text;
             }
             
+        }
+
+        public Uri GetUri()
+        {
+            switch (Type)
+            {
+                case ScanResultType.Link:
+                    return new Uri((!Text.StartsWith("http") ? "http://" : "") + Text);
+
+                case ScanResultType.Product:
+                    return new Uri("https://www.google.com/search?q=" + HttpUtility.UrlEncode(Text));
+
+                default:
+                    return null;
+            }
         }
     }
 }

@@ -61,6 +61,15 @@ namespace QRAndBarCodeReader.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to QR/Barcode reader.
+        /// </summary>
+        public static string AppName {
+            get {
+                return ResourceManager.GetString("AppName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Copy to clipboard.
         /// </summary>
         public static string CopyToClipboardText {
@@ -169,6 +178,15 @@ namespace QRAndBarCodeReader.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Scanned with {0}.
+        /// </summary>
+        public static string ScannedWithAppNameText {
+            get {
+                return ResourceManager.GetString("ScannedWithAppNameText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Scan result.
         /// </summary>
         public static string ScanResultText {
@@ -210,6 +228,33 @@ namespace QRAndBarCodeReader.Resources {
         public static string SearchInGoogleText {
             get {
                 return ResourceManager.GetString("SearchInGoogleText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hey, check out this {0} I&apos;ve just scanned!.
+        /// </summary>
+        public static string ShareMessageText {
+            get {
+                return ResourceManager.GetString("ShareMessageText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Share.
+        /// </summary>
+        public static string ShareText {
+            get {
+                return ResourceManager.GetString("ShareText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Share via.
+        /// </summary>
+        public static string ShareViaText {
+            get {
+                return ResourceManager.GetString("ShareViaText", resourceCulture);
             }
         }
         

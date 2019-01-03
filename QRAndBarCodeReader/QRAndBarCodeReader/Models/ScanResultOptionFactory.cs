@@ -23,6 +23,7 @@ namespace QRAndBarCodeReader
                 {ScanResultOptions.OpenLink,  new ScanResultOption(ScanResultOptions.OpenLink) },
                 {ScanResultOptions.SearchInGoogle, new ScanResultOption(ScanResultOptions.SearchInGoogle) },
                 {ScanResultOptions.CopyToClipboard, new ScanResultOption(ScanResultOptions.CopyToClipboard) },
+                {ScanResultOptions.Share, new ScanResultOption(ScanResultOptions.Share) },
                 {ScanResultOptions.Delete, new ScanResultOption(ScanResultOptions.Delete) }
             };
         }

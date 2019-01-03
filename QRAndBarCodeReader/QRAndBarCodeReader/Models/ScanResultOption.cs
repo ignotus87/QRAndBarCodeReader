@@ -8,6 +8,7 @@ namespace QRAndBarCodeReader
         OpenLink,
         SearchInGoogle,
         CopyToClipboard,
+        Share,
         Delete
     }
 
