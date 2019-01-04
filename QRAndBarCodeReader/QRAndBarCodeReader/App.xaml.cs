@@ -1,4 +1,6 @@
-﻿using System;
+﻿using QRAndBarCodeReader.Resources;
+using System;
+using System.Globalization;
 using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -26,6 +28,9 @@ namespace QRAndBarCodeReader
         public App()
         {
             InitializeComponent();
+
+            // force a specific culture, useful for quick testing
+            //AppResources.Culture = new CultureInfo("de-DE");
 
             MainPage = new NavigationPage(new MainPage());
         }
