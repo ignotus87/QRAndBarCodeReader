@@ -35,13 +35,30 @@ namespace QRAndBarCodeReader
                     break;
 
                 case ScanResultOptions.OpenLink:
-                    var link = (!Result.Text.StartsWith("http") ? "http://" : "") + Result.Text;
-                    Device.OpenUri(new System.Uri(link));
+                    Device.OpenUri(Result.GetUri());
                     break;
 
                 case ScanResultOptions.SearchInGoogle:
-                    var searchLink = "https://www.google.com/search?q=" + HttpUtility.UrlEncode(Result.Text);
-                    Device.OpenUri(new System.Uri(searchLink));
+                    Device.OpenUri(Result.GetUri());
+                    break;
+
+                case ScanResultOptions.Share:
+                    var shareService = DependencyService.Get<IShareService>();
+
+                    var uri = Result.GetUri();
+
+                    if (uri != null)
+                    {
+                        shareService?.ShareLink(AppResources.ShareViaText,
+                            string.Format(AppResources.ShareMessageText, Result.TypeText),
+                            uri);
+                    }
+                    else
+                    {
+                        shareService?.ShareText(AppResources.ShareViaText,
+                            string.Format(AppResources.ShareMessageText, Result.TypeText),
+                            Result.Text);
+                    }
                     break;
 
                 case ScanResultOptions.Delete:

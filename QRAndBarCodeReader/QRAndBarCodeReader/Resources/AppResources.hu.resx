@@ -183,4 +183,24 @@
     <value>Szöveg</value>
     <comment>type of scan result: text</comment>
   </data>
+  <data name="ShareText" xml:space="preserve">
+    <value>Megosztás...</value>
+    <comment>text for option type share</comment>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>QR/Vonalkód olvasó</value>
+    <comment>app name shown in some content texts eg. sharing title</comment>
+  </data>
+  <data name="ScannedWithAppNameText" xml:space="preserve">
+    <value>A kódot ezzel az appal olvastam be: {0}</value>
+    <comment>shown in sharing text</comment>
+  </data>
+  <data name="ShareViaText" xml:space="preserve">
+    <value>Megosztás a következővel</value>
+    <comment>title of the share pane</comment>
+  </data>
+  <data name="ShareMessageText" xml:space="preserve">
+    <value>Szia, nézd, milyen {0} vonalkódot olvastam be!</value>
+    <comment>message of share, {0} is the message type</comment>
+  </data>
 </root>
