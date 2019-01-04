@@ -17,6 +17,7 @@ namespace QRAndBarCodeReader
         public MainPage()
         {
             InitializeComponent();
+
             InitializeScanHistory();
 
             this.BindingContext = _scanHistory;

@@ -118,90 +118,90 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CopyToClipboardText" xml:space="preserve">
-    <value>Másolás vágólapra</value>
+    <value>复制到剪贴板</value>
   </data>
   <data name="DeleteText" xml:space="preserve">
-    <value>Törlés</value>
+    <value>删除</value>
   </data>
   <data name="MainPageTitle" xml:space="preserve">
-    <value>QR/Vonalkód olvasó</value>
+    <value>QR /条形码扫描仪</value>
     <comment>title of the main page</comment>
   </data>
   <data name="OpenLinkText" xml:space="preserve">
-    <value>Megnyitás böngészőben</value>
+    <value>打开链接</value>
   </data>
   <data name="PositionCodeToLine" xml:space="preserve">
-    <value>Kódot a vízszintes vonalhoz</value>
+    <value>将代码定位到行</value>
     <comment>text shown on the top of the barcode reading page</comment>
   </data>
   <data name="ScanButtonText" xml:space="preserve">
-    <value>Vonalkód beolvasása</value>
+    <value>扫描</value>
   </data>
   <data name="ScannedBarcodeText" xml:space="preserve">
-    <value>Beolvasott vonalkód:</value>
+    <value>扫描条形码</value>
     <comment>text shown on the top of the barcode reading page</comment>
   </data>
   <data name="ScanResultText" xml:space="preserve">
-    <value>Beolvasott kód</value>
+    <value>扫描结果</value>
     <comment>title of the scan result details page</comment>
   </data>
   <data name="SearchInGoogleText" xml:space="preserve">
-    <value>Google keresés</value>
+    <value>在Google中搜索</value>
   </data>
   <data name="DeleteAreYouSureText" xml:space="preserve">
-    <value>Biztosan törlöd?</value>
+    <value>你确定吗？</value>
     <comment>question of the delete item alert box</comment>
   </data>
   <data name="DeleteItemText" xml:space="preserve">
-    <value>Beolvasás törlése</value>
+    <value>删除项目</value>
     <comment>title of the delete item alert box</comment>
   </data>
   <data name="DeleteNo" xml:space="preserve">
-    <value>Nem</value>
+    <value>没有</value>
     <comment>no answer for the delete item question</comment>
   </data>
   <data name="DeleteYes" xml:space="preserve">
-    <value>Igen</value>
+    <value>是</value>
     <comment>yes answer for the delete item question</comment>
   </data>
   <data name="OKText" xml:space="preserve">
-    <value>OK</value>
+    <value>好</value>
     <comment>OK</comment>
   </data>
   <data name="TextCopiedText" xml:space="preserve">
-    <value>Vágólapra másolva</value>
+    <value>文字已复制</value>
     <comment>shown after copy to clipboard</comment>
   </data>
   <data name="ScanResultTypeLink" xml:space="preserve">
-    <value>Hivatkozás</value>
+    <value>链接</value>
     <comment>type of scan result: link</comment>
   </data>
   <data name="ScanResultTypeProduct" xml:space="preserve">
-    <value>Termék</value>
+    <value>产品</value>
     <comment>type of scan result: product</comment>
   </data>
   <data name="ScanResultTypeText" xml:space="preserve">
-    <value>Szöveg</value>
+    <value>文本</value>
     <comment>type of scan result: text</comment>
   </data>
   <data name="ShareText" xml:space="preserve">
-    <value>Megosztás...</value>
+    <value>分享</value>
     <comment>text for option type share</comment>
   </data>
   <data name="AppName" xml:space="preserve">
-    <value>QR/Vonalkód olvasó</value>
+    <value>QR /条形码扫描仪</value>
     <comment>app name shown in some content texts eg. sharing title</comment>
   </data>
   <data name="ScannedWithAppNameText" xml:space="preserve">
-    <value>A kódot ezzel az appal olvastam be: {0}</value>
+    <value>使用{0}扫描</value>
     <comment>shown in sharing text</comment>
   </data>
   <data name="ShareViaText" xml:space="preserve">
-    <value>Megosztás a következővel</value>
+    <value>分享通过</value>
     <comment>title of the share pane</comment>
   </data>
   <data name="ShareMessageText" xml:space="preserve">
-    <value>Szia, nézd, milyen {0} vonalkódot olvastam be!</value>
+    <value>嘿，看看我刚刚扫描过的{0}！</value>
     <comment>message of share, {0} is the message type</comment>
   </data>
 </root>

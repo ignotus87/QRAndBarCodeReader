@@ -124,7 +124,7 @@
     <value>Delete</value>
   </data>
   <data name="MainPageTitle" xml:space="preserve">
-    <value>QR/Barcode reader</value>
+    <value>QR/Barcode scanner</value>
     <comment>title of the main page</comment>
   </data>
   <data name="OpenLinkText" xml:space="preserve">
@@ -132,12 +132,13 @@
   </data>
   <data name="PositionCodeToLine" xml:space="preserve">
     <value>Position code to line</value>
+    <comment>text shown on the top of the barcode reading page</comment>
   </data>
   <data name="ScanButtonText" xml:space="preserve">
     <value>Scan</value>
   </data>
   <data name="ScannedBarcodeText" xml:space="preserve">
-    <value>ScannedBarcode</value>
+    <value>Scanned barcode</value>
     <comment>text shown on the top of the barcode reading page</comment>
   </data>
   <data name="ScanResultText" xml:space="preserve">
@@ -188,7 +189,7 @@
     <comment>text for option type share</comment>
   </data>
   <data name="AppName" xml:space="preserve">
-    <value>QR/Barcode reader</value>
+    <value>QR/Barcode scanner</value>
     <comment>app name shown in some content texts eg. sharing title</comment>
   </data>
   <data name="ScannedWithAppNameText" xml:space="preserve">

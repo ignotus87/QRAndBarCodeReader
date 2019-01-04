@@ -118,90 +118,90 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CopyToClipboardText" xml:space="preserve">
-    <value>Másolás vágólapra</value>
+    <value>Copiar para área de transferência</value>
   </data>
   <data name="DeleteText" xml:space="preserve">
-    <value>Törlés</value>
+    <value>Excluir</value>
   </data>
   <data name="MainPageTitle" xml:space="preserve">
-    <value>QR/Vonalkód olvasó</value>
+    <value>Scanner QR / Barcode</value>
     <comment>title of the main page</comment>
   </data>
   <data name="OpenLinkText" xml:space="preserve">
-    <value>Megnyitás böngészőben</value>
+    <value>Link aberto</value>
   </data>
   <data name="PositionCodeToLine" xml:space="preserve">
-    <value>Kódot a vízszintes vonalhoz</value>
+    <value>Código de posição para linha</value>
     <comment>text shown on the top of the barcode reading page</comment>
   </data>
   <data name="ScanButtonText" xml:space="preserve">
-    <value>Vonalkód beolvasása</value>
+    <value>Digitalizar</value>
   </data>
   <data name="ScannedBarcodeText" xml:space="preserve">
-    <value>Beolvasott vonalkód:</value>
+    <value>Código de barras digitalizado</value>
     <comment>text shown on the top of the barcode reading page</comment>
   </data>
   <data name="ScanResultText" xml:space="preserve">
-    <value>Beolvasott kód</value>
+    <value>Resultado do scaneamento</value>
     <comment>title of the scan result details page</comment>
   </data>
   <data name="SearchInGoogleText" xml:space="preserve">
-    <value>Google keresés</value>
+    <value>Pesquisar no google</value>
   </data>
   <data name="DeleteAreYouSureText" xml:space="preserve">
-    <value>Biztosan törlöd?</value>
+    <value>Você tem certeza?</value>
     <comment>question of the delete item alert box</comment>
   </data>
   <data name="DeleteItemText" xml:space="preserve">
-    <value>Beolvasás törlése</value>
+    <value>Excluir item</value>
     <comment>title of the delete item alert box</comment>
   </data>
   <data name="DeleteNo" xml:space="preserve">
-    <value>Nem</value>
+    <value>Não</value>
     <comment>no answer for the delete item question</comment>
   </data>
   <data name="DeleteYes" xml:space="preserve">
-    <value>Igen</value>
+    <value>Sim</value>
     <comment>yes answer for the delete item question</comment>
   </data>
   <data name="OKText" xml:space="preserve">
-    <value>OK</value>
+    <value>Está bem</value>
     <comment>OK</comment>
   </data>
   <data name="TextCopiedText" xml:space="preserve">
-    <value>Vágólapra másolva</value>
+    <value>Texto copiado</value>
     <comment>shown after copy to clipboard</comment>
   </data>
   <data name="ScanResultTypeLink" xml:space="preserve">
-    <value>Hivatkozás</value>
+    <value>Ligação</value>
     <comment>type of scan result: link</comment>
   </data>
   <data name="ScanResultTypeProduct" xml:space="preserve">
-    <value>Termék</value>
+    <value>Produto</value>
     <comment>type of scan result: product</comment>
   </data>
   <data name="ScanResultTypeText" xml:space="preserve">
-    <value>Szöveg</value>
+    <value>Texto</value>
     <comment>type of scan result: text</comment>
   </data>
   <data name="ShareText" xml:space="preserve">
-    <value>Megosztás...</value>
+    <value>Compartilhar</value>
     <comment>text for option type share</comment>
   </data>
   <data name="AppName" xml:space="preserve">
-    <value>QR/Vonalkód olvasó</value>
+    <value>Scanner QR / Barcode</value>
     <comment>app name shown in some content texts eg. sharing title</comment>
   </data>
   <data name="ScannedWithAppNameText" xml:space="preserve">
-    <value>A kódot ezzel az appal olvastam be: {0}</value>
+    <value>Digitalizado com {0}</value>
     <comment>shown in sharing text</comment>
   </data>
   <data name="ShareViaText" xml:space="preserve">
-    <value>Megosztás a következővel</value>
+    <value>Compartilhar via</value>
     <comment>title of the share pane</comment>
   </data>
   <data name="ShareMessageText" xml:space="preserve">
-    <value>Szia, nézd, milyen {0} vonalkódot olvastam be!</value>
+    <value>Ei, confira isso {0} eu só fiz a varredura!</value>
     <comment>message of share, {0} is the message type</comment>
   </data>
 </root>
