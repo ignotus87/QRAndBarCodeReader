@@ -1,4 +1,6 @@
-﻿using QRAndBarCodeReader.Resources;
+﻿using QRAndBarCodeReader.Interfaces;
+using QRAndBarCodeReader.Resources;
+using QRAndBarCodeReader.Views;
 using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
@@ -11,7 +13,7 @@ namespace QRAndBarCodeReader
     {
         private const string SEPARATOR = "§§§";
         private const string SCAN_HISTORY = "ScanHistory";
-
+        private const string HAS_EVER_STARTED_KEY = "HasEverStarted";
         private static ObservableCollection<ScanResult> _scanHistory = new ObservableCollection<ScanResult>();
 
         public MainPage()
@@ -24,9 +26,32 @@ namespace QRAndBarCodeReader
 
             ScanButton.Clicked += ScanButton_Clicked;
 
+            if (IsFirstStart())
+            {
+                ShowFirstStartInfo();
+                SetFirstStartFlag();
+            }
+            else
+            {
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
-            Scan();
+                Scan();
 #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+            }
+        }
+
+        private void SetFirstStartFlag()
+        {
+            App.Current.Properties.Add(HAS_EVER_STARTED_KEY, true);
+        }
+
+        private void ShowFirstStartInfo()
+        {
+            var welcomePage = new WelcomePage(Scan);
+        }
+
+        private bool IsFirstStart()
+        {
+            return !App.Current.Properties.ContainsKey(HAS_EVER_STARTED_KEY);
         }
 
         public static async void RemoveFromScanHistory(ScanResult scanResult)
@@ -86,7 +111,7 @@ namespace QRAndBarCodeReader
             await Scan();
         }
 
-        private async Task Scan()
+        public async Task Scan()
         {
             var options = new ZXing.Mobile.MobileBarcodeScanningOptions
             {
