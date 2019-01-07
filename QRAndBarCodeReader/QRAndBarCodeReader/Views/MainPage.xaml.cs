@@ -1,4 +1,6 @@
-﻿using QRAndBarCodeReader.Interfaces;
+﻿using Plugin.Permissions;
+using Plugin.Permissions.Abstractions;
+using QRAndBarCodeReader.Interfaces;
 using QRAndBarCodeReader.Resources;
 using QRAndBarCodeReader.Views;
 using System;
@@ -6,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using ZXing.Net.Mobile.Forms;
+using static Android.Manifest;
 
 namespace QRAndBarCodeReader
 {
@@ -16,11 +19,15 @@ namespace QRAndBarCodeReader
         private const string HAS_EVER_STARTED_KEY = "HasEverStarted";
         private static ObservableCollection<ScanResult> _scanHistory = new ObservableCollection<ScanResult>();
 
+        private static ScanResult _emptyScanHistoryPlaceholder = new ScanResult(AppResources.ScanHistoryPlaceholder, ScanResultType.Placeholder);
+
         public MainPage()
         {
             InitializeComponent();
 
             InitializeScanHistory();
+
+            EnsureCameraPermission();
 
             this.BindingContext = _scanHistory;
 
@@ -39,6 +46,34 @@ namespace QRAndBarCodeReader
             }
         }
 
+        private async void EnsureCameraPermission()
+        {
+            try
+            {
+                var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Plugin.Permissions.Abstractions.Permission.Camera);
+                if (status != PermissionStatus.Granted)
+                {
+                    if (await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Plugin.Permissions.Abstractions.Permission.Camera))
+                    {
+                        await DisplayAlert("Need location", "Gunna need that location", "OK");
+                    }
+
+                    var results = await CrossPermissions.Current.RequestPermissionsAsync(new[] { Plugin.Permissions.Abstractions.Permission.Camera });
+                    status = results[Plugin.Permissions.Abstractions.Permission.Camera];
+                }
+
+                if (status != PermissionStatus.Granted)
+                {
+                    await DisplayAlert("Camera Denied", "Can not continue, try again.", "OK");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                await DisplayAlert("Camera Denied", "Can not continue, try again.", "OK");
+            }
+        }
+
         private void SetFirstStartFlag()
         {
             App.Current.Properties.Add(HAS_EVER_STARTED_KEY, true);
@@ -47,6 +82,7 @@ namespace QRAndBarCodeReader
         private void ShowFirstStartInfo()
         {
             var welcomePage = new WelcomePage(Scan);
+            Navigation.PushAsync(welcomePage);
         }
 
         private bool IsFirstStart()
@@ -62,6 +98,11 @@ namespace QRAndBarCodeReader
         private async void InitializeScanHistory()
         {
             await RestoreScanHistory();
+
+            if (_scanHistory.Count == 0)
+            {
+                _scanHistory.Add(_emptyScanHistoryPlaceholder);
+            }
         }
 
         private static async Task AddScanResult(ScanResult scanResult)
@@ -95,7 +136,12 @@ namespace QRAndBarCodeReader
         {
             if (e == null) return; // has been set to null, do not 'process' tapped event
 
-            await OpenResultPage(((ScanResult)e.Item));
+            var tappedItem = ((ScanResult)e.Item);
+
+            if (tappedItem != _emptyScanHistoryPlaceholder)
+            {
+                await OpenResultPage(tappedItem);
+            }
 
             ((ListView)sender).SelectedItem = null; // de-select the row
         }

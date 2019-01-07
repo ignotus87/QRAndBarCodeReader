@@ -10,11 +10,13 @@ namespace QRAndBarCodeReader
     {
         Text,
         Link,
-        Product
+        Product,
+        Placeholder
     }
 
     public class ScanResult
     {
+        private bool _isPlaceholder;
         private static string _scanResultText;
         public static string ScanResultText
         {
@@ -45,7 +47,20 @@ namespace QRAndBarCodeReader
             }
         }
 
-        public string TypeText => AppResources.ResourceManager.GetString("ScanResultType" + Enum.GetName(typeof(ScanResultType), Type)) ?? "N/A";
+        public string TypeText
+        {
+            get
+            {
+                if (Type != ScanResultType.Placeholder)
+                {
+                    return AppResources.ResourceManager.GetString("ScanResultType" + Enum.GetName(typeof(ScanResultType), Type)) ?? "N/A";
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+        }
 
         private List<ScanResultOption> _options;
         public List<ScanResultOption> Options
@@ -82,9 +97,19 @@ namespace QRAndBarCodeReader
             Text = text;
         }
 
+        public ScanResult(string text, ScanResultType type) : this(text)
+        {
+            _isPlaceholder = true;
+        }
+
         private void DetermineType()
         {
-            if (Text.StartsWith("http://") || Text.StartsWith("https://") || Text.ToLower().StartsWith("www."))
+            if (_isPlaceholder)
+            {
+                _isPlaceholder = true;
+                _type = ScanResultType.Placeholder;
+            }
+            else if (Text.StartsWith("http://") || Text.StartsWith("https://") || Text.ToLower().StartsWith("www."))
             {
                 _type = ScanResultType.Link;   
             }
