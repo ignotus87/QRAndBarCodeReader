@@ -204,4 +204,7 @@
     <value>嘿，看看我刚刚扫描过的{0}！</value>
     <comment>message of share, {0} is the message type</comment>
   </data>
+  <data name="ScanHistoryPlaceholder" xml:space="preserve">
+    <value>您的扫描历史记录将显示在此处。</value>
+  </data>
 </root>

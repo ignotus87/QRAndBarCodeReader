@@ -159,12 +159,19 @@ namespace QRAndBarCodeReader
 
         public async Task Scan()
         {
+            var scanner = new ZXing.Mobile.MobileBarcodeScanner()
+            {
+                UseCustomOverlay = false,
+                BottomText = AppResources.PositionCodeToLine
+            };
+
             var options = new ZXing.Mobile.MobileBarcodeScanningOptions
             {
                 AutoRotate = false,
                 DelayBetweenContinuousScans = 100,
                 DisableAutofocus = false,
-                TryHarder = true
+                TryHarder = false,
+                TryInverted = true
             };
 
             var scanPage = new ZXingScannerPage(options)
@@ -172,7 +179,7 @@ namespace QRAndBarCodeReader
                 Title = AppResources.PositionCodeToLine,
                 DefaultOverlayShowFlashButton = true
             };
-
+            
             scanPage.OnScanResult += async (result) =>
             {
                 // Stop scanning

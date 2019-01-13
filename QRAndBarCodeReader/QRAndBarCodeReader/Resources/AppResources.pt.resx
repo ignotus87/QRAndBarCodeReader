@@ -204,4 +204,7 @@
     <value>Ei, confira isso {0} eu só fiz a varredura!</value>
     <comment>message of share, {0} is the message type</comment>
   </data>
+  <data name="ScanHistoryPlaceholder" xml:space="preserve">
+    <value>Seu histórico de varreduras será exibido aqui.</value>
+  </data>
 </root>

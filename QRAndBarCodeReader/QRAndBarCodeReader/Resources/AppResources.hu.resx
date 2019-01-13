@@ -204,4 +204,7 @@
     <value>Szia, nézd, milyen {0} vonalkódot olvastam be!</value>
     <comment>message of share, {0} is the message type</comment>
   </data>
+  <data name="ScanHistoryPlaceholder" xml:space="preserve">
+    <value>Az előzmények itt fognak megjelenni.</value>
+  </data>
 </root>
