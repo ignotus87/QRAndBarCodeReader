@@ -35,7 +35,7 @@ namespace QRAndBarCodeReader
 
             if (IsFirstStart())
             {
-                ShowFirstStartInfo();
+                //ShowFirstStartInfo();
                 SetFirstStartFlag();
             }
             else
@@ -79,11 +79,11 @@ namespace QRAndBarCodeReader
             App.Current.Properties.Add(HAS_EVER_STARTED_KEY, true);
         }
 
-        private void ShowFirstStartInfo()
-        {
-            var welcomePage = new WelcomePage(Scan);
-            Navigation.PushAsync(welcomePage);
-        }
+        //private void ShowFirstStartInfo()
+        //{
+        //    var welcomePage = new WelcomePage(Scan);
+        //    Navigation.PushAsync(welcomePage);
+        //}
 
         private bool IsFirstStart()
         {
