@@ -204,4 +204,7 @@
     <value>Ehi, guarda questo {0} che ho appena scansionato!</value>
     <comment>message of share, {0} is the message type</comment>
   </data>
+  <data name="ScanHistoryPlaceholder" xml:space="preserve">
+    <value>La tua cronologia di scansione verrà visualizzata qui.</value>
+  </data>
 </root>
