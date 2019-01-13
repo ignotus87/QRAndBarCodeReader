@@ -61,7 +61,7 @@ namespace QRAndBarCodeReader.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to QR/Barcode reader.
+        ///   Looks up a localized string similar to QR/Barcode scanner.
         /// </summary>
         public static string AppName {
             get {
@@ -124,7 +124,7 @@ namespace QRAndBarCodeReader.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to QR/Barcode reader.
+        ///   Looks up a localized string similar to QR/Barcode scanner.
         /// </summary>
         public static string MainPageTitle {
             get {
@@ -169,7 +169,16 @@ namespace QRAndBarCodeReader.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ScannedBarcode.
+        ///   Looks up a localized string similar to Your scan history will show up here..
+        /// </summary>
+        public static string ScanHistoryPlaceholder {
+            get {
+                return ResourceManager.GetString("ScanHistoryPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scanned barcode.
         /// </summary>
         public static string ScannedBarcodeText {
             get {
